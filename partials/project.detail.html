@@ -1,0 +1,10 @@
+<A HREF="javascript:javascript:history.go(-1)">back to ./resources</A>
+
+<h3>{{project.project}}</h3>
+<ul>
+  <li>Due: {{project.deadline}}</li>
+  <li>Dept: {{project.department}}</li>
+  <li ng-repeat="resource in project.resources">
+    Resource: {{resource}}
+  </li>
+</ul>

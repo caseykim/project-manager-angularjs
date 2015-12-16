@@ -20,6 +20,15 @@ projectApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('departments.project', {
+      url: "/project/:id",
+      views: {
+        "content@": {
+          templateUrl: "partials/project.detail.html",
+          controller: "ProjDetailCtrl"
+        }
+      }
+    })
     .state('deadlines', {
       url: "/deadlines",
       views: {
@@ -36,6 +45,15 @@ projectApp.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('deadlines.project', {
+      url: "/project/:id",
+      views: {
+        "content@": {
+          templateUrl: "partials/project.detail.html",
+          controller: "ProjDetailCtrl"
+        }
+      }
+    })
     .state('projects', {
       url: "/projects",
       views: {
@@ -49,6 +67,15 @@ projectApp.config(function($stateProvider, $urlRouterProvider) {
       views: {
         "content@": {
           templateUrl: "partials/projects.resources.html"
+        }
+      }
+    })
+    .state('projects.project', {
+      url: "/project/:id",
+      views: {
+        "content@": {
+          templateUrl: "partials/project.detail.html",
+          controller: "ProjDetailCtrl"
         }
       }
     });

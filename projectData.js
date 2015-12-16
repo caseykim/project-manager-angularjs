@@ -7,6 +7,12 @@ projectServices.service('ProjectData', [function(){
     return projectData;
   };
 
+  retObj.findById = function(id){
+    return $.grep(projectData, function(el){
+      return el.id == id;
+    });
+  };
+
   retObj.assignProject = function(proj){
     var newProj = angular.copy(proj);
     newProj.id = id;
