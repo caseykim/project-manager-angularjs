@@ -62,3 +62,12 @@ projectApp.controller('MainCtrl', [
     };
   }
 ]);
+
+projectApp.controller('ProjDetailCtrl',[
+  '$scope',
+  'ProjectData',
+  '$stateParams',
+  function($scope, ProjectData, $stateParams){
+    $scope.project = ProjectData.findById($stateParams.id)[0];
+  }
+]);

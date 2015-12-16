@@ -4,7 +4,7 @@
   <ul ng-repeat="(key, value) in projectByDue">
     <b>{{key}}</b>
     <ul class="detail" ng-repeat="data in value">
-      Project: {{data.project}}
+      <a ng-href="#/deadlines/project/{{data.id}}">Project: {{data.project}}</a>
       <ul>
         <li>Dept: {{data.department}}</li>
         <li>Total Resources: {{data.resources.length}}</li>
@@ -12,4 +12,3 @@
     </ul>
   </ul>
 </div>
-<hr/>

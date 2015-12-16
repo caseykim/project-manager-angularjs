@@ -2,7 +2,7 @@
 <a ng-href="#/projects">back to Projects</a>
 <div class="content">
   <ul ng-repeat="data in projectData">
-    <b>{{data.project}}</b>
+    <a ng-href="#/projects/project/{{data.id}}">{{data.project}}</a>
     <ul>
       <li>Due: {{data.deadline}}</li>
       <li>Dept: {{data.department}}</li>
@@ -10,4 +10,3 @@
     </ul>
   </ul>
 </div>
-<hr/>
