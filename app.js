@@ -1,7 +1,7 @@
 var projectApp = angular.module('projectApp',['projectServices', 'ui.router']);
 
 projectApp.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise("/projects");
+  $urlRouterProvider.otherwise("/departments");
 
   $stateProvider
     .state('departments', {

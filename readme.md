@@ -1,4 +1,3 @@
-https://github.com/caseykim/project-manager-angularjs.git
 # Project Manager Application built with AngularJS
 
 To begin, please
@@ -12,5 +11,5 @@ then
 ```
 cd project-manager-angularjs
 npm install -g http-server
-htt-server -o
+http-server -o
 ```
