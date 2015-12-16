@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="projectApp" ng-controller="MainCtrl">
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS challenge</title>
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="projectData.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/controllers.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="row">
+        <div class="col-md-8">
+
+          <div ui-view="content"></div>
+          <a ui-sref="departments">Departments</a>
+          <a ui-sref="deadlines">Deadlines</a>
+          <a ui-sref="projects">Projects</a>
+        </div>
+
+        <div class="col-md-4">
+          <h3>Assign Project</h3>
+          <form name="assignForm">
+            <fieldset class="form-group">
+              <label for="assignProject">Project</label>
+              <select class="form-control" ng-model="assign.project" required>
+                <option ng-repeat="project in projects" value="{{project}}">{{project}}</option>
+              </select>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <label for="assignDeadline">Deadline</label>
+              <select class="form-control" ng-model="assign.deadline" required>
+                <option ng-repeat="deadline in deadlines" value="{{deadline}}">{{deadline}}</option>
+              </select>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <label for="assignDepartment">Department</label>
+              <select class="form-control" ng-model="assign.department" required>
+                <option ng-repeat="department in departments" value="{{department}}">{{department}}</option>
+              </select>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <label for="assignResources">Resources</label>
+              <span class="form-control" ng-repeat="resource in resources">
+                <input type="checkbox" value="{{resource}}" ng-checked="assign.selectedResources.indexOf(resource) > -1" ng-click="toggleSelection(resource)">
+                {{resource}}
+              </span>
+            </fieldset>
+
+            <button class="btn btn-info" ng-disabled="assignForm.$invalid || assignForm.$pristine" ng-click="assignProject()">Assign Project</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

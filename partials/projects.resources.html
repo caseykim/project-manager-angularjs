@@ -1,0 +1,13 @@
+<h1>Resources</h1>
+<a ng-href="#/projects">back to Projects</a>
+<div class="content">
+  <ul ng-repeat="data in projectData">
+    <b>{{data.project}}</b>
+    <ul>
+      <li>Due: {{data.deadline}}</li>
+      <li>Dept: {{data.department}}</li>
+      <li>Total Resources: {{data.resources.length}}</li>
+    </ul>
+  </ul>
+</div>
+<hr/>
