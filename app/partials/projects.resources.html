@@ -1,7 +1,7 @@
 <h1>Resources</h1>
 <a ng-href="#/projects">back to Projects</a>
 <div class="content">
-  <ul ng-repeat="data in projectData">
+  <ul ng-repeat="data in projectData | orderBy: 'project'">
     <a ng-href="#/projects/project/{{data.id}}">{{data.project}}</a>
     <ul>
       <li>Due: {{data.deadline}}</li>

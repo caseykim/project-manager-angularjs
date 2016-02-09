@@ -1,7 +1,7 @@
 <h1>Projects</h1>
 <a ui-sref=".resources">link to Resources</a>
 <div class="content">
-  <ul ng-repeat="data in projectData">
+  <ul ng-repeat="data in projectData | orderBy: 'project'">
     <b>{{data.project}}</b>
     <ul>
       <li>Due: {{data.deadline}}</li>
