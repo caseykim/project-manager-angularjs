@@ -13,11 +13,16 @@ projectServices.service('ProjectData', [function(){
     });
   };
 
-  retObj.assignProject = function(proj){
+  retObj.assign = function(proj){
     var newProj = angular.copy(proj);
     newProj.id = id;
     id++;
     return projectData.push(newProj);
+  };
+
+  retObj.remove = function(proj){
+    var idx = projectData.indexOf(proj);
+    projectData.splice(idx, 1);
   };
 
   retObj.takenProjects = function() {

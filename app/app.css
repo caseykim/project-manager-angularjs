@@ -16,3 +16,7 @@ ul {
 .detail {
   padding-top: 0.75em;
 }
+
+button {
+  float: right;
+}
