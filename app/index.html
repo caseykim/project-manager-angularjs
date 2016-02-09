@@ -10,8 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="app.js"></script>
     <script src="js/services.js"></script>
-    <script src="projectData.js"></script>
     <script src="js/projects.js"></script>
+    <script src="js/projectData.js"></script>
     <script src="js/controllers.js"></script>
   </head>
   <body>
@@ -20,6 +20,7 @@
         <div class="col-md-8">
 
           <div ui-view="content"></div>
+          <hr/>
           <a ui-sref="departments">Departments</a>
           <a ui-sref="deadlines">Deadlines</a>
           <a ui-sref="projects">Projects</a>

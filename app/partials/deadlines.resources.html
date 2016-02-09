@@ -1,15 +1,14 @@
-<h1>Deadlines</h1>
-<a ui-sref=".resources">link to Resources</a>
+<h1>Resources</h1>
+<a ng-href="#/deadlines">back to Deadlines</a>
 <div class="content">
   <ul ng-repeat="(key, value) in projectByDue">
     <b>{{key}}</b>
     <ul class="detail" ng-repeat="data in value">
-      Project: {{data.project}}
+      <a ng-href="#/deadlines/project/{{data.id}}">Project: {{data.project}}</a>
       <ul>
         <li>Dept: {{data.department}}</li>
-        <li ng-repeat="resource in data.resources">Resource: {{resource}}</li>
+        <li>Total Resources: {{data.resources.length}}</li>
       </ul>
     </ul>
   </ul>
 </div>
-<hr/>

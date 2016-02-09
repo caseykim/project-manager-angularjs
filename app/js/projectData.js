@@ -7,11 +7,22 @@ projectServices.service('ProjectData', [function(){
     return projectData;
   };
 
-  retObj.assignProject = function(proj){
+  retObj.findById = function(id){
+    return $.grep(projectData, function(el){
+      return el.id == id;
+    });
+  };
+
+  retObj.assign = function(proj){
     var newProj = angular.copy(proj);
     newProj.id = id;
     id++;
     return projectData.push(newProj);
+  };
+
+  retObj.remove = function(proj){
+    var idx = projectData.indexOf(proj);
+    projectData.splice(idx, 1);
   };
 
   retObj.takenProjects = function() {

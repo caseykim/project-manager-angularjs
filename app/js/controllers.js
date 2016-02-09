@@ -1,9 +1,10 @@
 projectApp.controller('MainCtrl', [
   '$scope',
+  '$location',
   'Project',
   'OriginalDataset',
   'ProjectData',
-  function($scope, Project, OriginalDataset, ProjectData)
+  function($scope, $location, Project, OriginalDataset, ProjectData)
   {
     $scope.projects = Project.available();
     $scope.deadlines = OriginalDataset.deadlines;
@@ -45,7 +46,7 @@ projectApp.controller('MainCtrl', [
       else {
         $scope.assign.selectedResources.push(resource);
       }
-    }
+    };
 
     $scope.assignProject = function(){
       var proj = {
@@ -54,11 +55,30 @@ projectApp.controller('MainCtrl', [
         deadline: $scope.assign.deadline,
         resources: $scope.assign.selectedResources
       };
-      ProjectData.assignProject(proj);
+      ProjectData.assign(proj);
       alert('Assigned!');
 
       resetAssignForm();
       updateGroupBy();
     };
+
+    $scope.removeProject = function(project){
+      if (confirm('Are you sure to remove this project?')) {
+        ProjectData.remove(project);
+
+        $scope.projects = Project.available();
+        updateGroupBy();
+        $location.path('/app');
+      }
+    };
+  }
+]);
+
+projectApp.controller('ProjDetailCtrl',[
+  '$scope',
+  'ProjectData',
+  '$stateParams',
+  function($scope, ProjectData, $stateParams){
+    $scope.project = ProjectData.findById($stateParams.id)[0];
   }
 ]);
