@@ -6,10 +6,10 @@ projectApp.controller('MainCtrl', [
   'ProjectData',
   function($scope, $location, Project, OriginalDataset, ProjectData)
   {
-    $scope.projects = Project.available();
-    $scope.deadlines = OriginalDataset.deadlines;
-    $scope.departments = OriginalDataset.departments;
-    $scope.resources = OriginalDataset.resources;
+    $scope.projects = Project.available().sort();
+    $scope.deadlines = OriginalDataset.deadlines.sort();
+    $scope.departments = OriginalDataset.departments.sort();
+    $scope.resources = OriginalDataset.resources.sort();
     $scope.projectData = ProjectData.all();
 
     $scope.projectByDept = ProjectData.groupBy('department', $scope.departments);

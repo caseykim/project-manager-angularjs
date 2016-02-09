@@ -3,7 +3,7 @@
 <div class="content">
   <ul ng-repeat="(key, value) in projectByDue">
     <b>{{key}}</b>
-    <ul class="detail" ng-repeat="data in value">
+    <ul class="detail" ng-repeat="data in value | orderBy: 'project'">
       Project: {{data.project}}
       <ul>
         <li>Dept: {{data.department}}</li>
